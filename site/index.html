@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bantay status</title>
+    <meta name="description" content="Live status of the sites Bantay watches, checked automatically by Playwright on a schedule." />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="app.js"></script>
+  </head>
+  <body>
+    <header class="masthead">
+      <a class="brand" href="./">
+        <svg class="lamp" viewBox="0 0 32 32" aria-hidden="true">
+          <circle cx="16" cy="16" r="15" class="lamp-glow" />
+          <circle cx="16" cy="16" r="7" class="lamp-core" />
+        </svg>
+        Bantay
+      </a>
+      <p class="tagline">Automated checks on live sites, around the clock.</p>
+    </header>
+
+    <main id="app" aria-live="polite" aria-busy="true">
+      <p class="loading">Reading the patrol log…</p>
+    </main>
+
+    <footer class="foot">
+      Built by Akinon. Checks run on GitHub Actions with Playwright; this page updates after every patrol.
+    </footer>
+  </body>
+</html>

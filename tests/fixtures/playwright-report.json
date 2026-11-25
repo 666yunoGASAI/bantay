@@ -1,0 +1,64 @@
+{
+  "suites": [
+    {
+      "title": "bracket-lord.monitor.ts",
+      "specs": [],
+      "suites": [
+        {
+          "title": "Bracket Lord",
+          "specs": [
+            {
+              "title": "Site is reachable",
+              "tests": [
+                {
+                  "status": "expected",
+                  "annotations": [{ "type": "response-time", "description": "184" }],
+                  "results": [{ "status": "passed", "duration": 230.4, "retry": 0, "attachments": [] }]
+                }
+              ]
+            },
+            {
+              "title": "Create a tournament",
+              "tests": [
+                {
+                  "status": "unexpected",
+                  "annotations": [],
+                  "results": [
+                    { "status": "failed", "duration": 10100, "retry": 0, "error": { "message": "first attempt" }, "attachments": [{ "name": "screenshot", "path": "artifacts/first/test-failed-1.png" }] },
+                    {
+                      "status": "failed",
+                      "duration": 10050,
+                      "retry": 1,
+                      "error": { "message": "\u001b[31mError: expect(locator).toBeVisible() failed\u001b[39m\n\nLocator: getByRole('button', { name: 'Create bracket' })\nExpected: visible\nReceived: <element(s) not found>\nTimeout: 10000ms" },
+                      "attachments": [
+                        { "name": "screenshot", "path": "artifacts/retry1/test-failed-1.png" },
+                        { "name": "trace", "path": "artifacts/retry1/trace.zip" }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Report a match result",
+              "tests": [
+                {
+                  "status": "flaky",
+                  "annotations": [],
+                  "results": [
+                    { "status": "failed", "duration": 3000, "retry": 0, "error": { "message": "blip" }, "attachments": [] },
+                    { "status": "passed", "duration": 1500, "retry": 1, "attachments": [] }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Skipped check",
+              "tests": [{ "status": "skipped", "annotations": [], "results": [] }]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+/*
+ * Bantay: a night-watch logbook. Cool paper, ink text, one warm lamp colour for the brand.
+ * The patrol strips (one bar per run) are the memorable element; the rest stays plain.
+ */
+/* Fonts are self-hosted (SIL Open Font License): the status page has no third-party dependencies. */
+@font-face { font-family: 'Bricolage Grotesque'; font-weight: 600; font-style: normal; font-display: swap; src: url('fonts/bricolage-grotesque-latin-600-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Bricolage Grotesque'; font-weight: 800; font-style: normal; font-display: swap; src: url('fonts/bricolage-grotesque-latin-800-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Public Sans'; font-weight: 400; font-style: normal; font-display: swap; src: url('fonts/public-sans-latin-400-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Public Sans'; font-weight: 500; font-style: normal; font-display: swap; src: url('fonts/public-sans-latin-500-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Public Sans'; font-weight: 600; font-style: normal; font-display: swap; src: url('fonts/public-sans-latin-600-normal.woff2') format('woff2'); }
+
+:root {
+  --bg: #f3f5f8;
+  --card: #ffffff;
+  --ink: #18202b;
+  --muted: #5a6573;
+  --line: #dce1e8;
+  --up: #1e8e5a;
+  --down: #d2372c;
+  --unstable: #c77700;
+  --none: #c9d0d9;
+  --empty: #e8ecf1;
+  --lamp: #f2a007;
+
+  --f-display: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif;
+  --f-body: 'Public Sans', 'Segoe UI', system-ui, sans-serif;
+
+  color-scheme: light;
+  font-family: var(--f-body);
+  line-height: 1.5;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-height: 100vh; display: flex; flex-direction: column; }
+a { color: inherit; text-underline-offset: 3px; }
+a:hover { color: var(--ink); }
+:focus-visible { outline: 3px solid var(--lamp); outline-offset: 2px; }
+
+.masthead, #app, .foot { width: 100%; max-width: 1040px; margin: 0 auto; padding-inline: 1.5rem; }
+
+.masthead { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; padding-block: 1.5rem 0; }
+.brand { display: inline-flex; align-items: center; gap: 0.55rem; font-family: var(--f-display); font-weight: 800; font-size: 1.6rem; text-decoration: none; }
+.lamp { width: 28px; height: 28px; align-self: center; }
+.lamp-glow { fill: var(--lamp); opacity: 0.28; }
+.lamp-core { fill: var(--lamp); }
+.tagline { margin: 0; color: var(--muted); }
+
+#app { flex: 1; padding-block: 2.5rem 3rem; }
+.loading { color: var(--muted); }
+
+/* ---------- Headline ---------- */
+
+.hero { margin-bottom: 2.5rem; }
+.hero h1 {
+  font-family: var(--f-display); font-weight: 800;
+  font-size: clamp(2.4rem, 6vw, 4.25rem); line-height: 1; letter-spacing: -0.02em;
+  margin: 0 0 0.75rem;
+  display: flex; align-items: center; gap: 0.9rem;
+}
+.hero h1::before {
+  content: ''; flex: none; width: 0.55em; height: 0.55em; border-radius: 50%;
+  background: var(--none); box-shadow: 0 0 0 0.18em color-mix(in srgb, var(--none) 30%, transparent);
+}
+.hero.is-up h1::before { background: var(--up); box-shadow: 0 0 0 0.18em color-mix(in srgb, var(--up) 22%, transparent); }
+.hero.is-down h1::before { background: var(--down); box-shadow: 0 0 0 0.18em color-mix(in srgb, var(--down) 22%, transparent); }
+.hero.is-down h1 { color: var(--down); }
+.hero-detail { margin: 0; color: var(--muted); font-size: 1.1rem; }
+.down-list { margin: 1rem 0 0; padding-left: 1.2rem; max-width: 70ch; }
+.down-list li { margin-bottom: 0.35rem; color: var(--muted); }
+.down-list strong { color: var(--ink); }
+
+.notice {
+  margin: 0 0 1.5rem; padding: 0.85rem 1rem;
+  background: #fff4de; border-left: 4px solid var(--unstable); border-radius: 0 6px 6px 0;
+  max-width: 75ch;
+}
+
+/* ---------- Sites and checks ---------- */
+
+.site { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 1.25rem 1.5rem 0.5rem; margin-bottom: 2rem; }
+.site-head { display: flex; align-items: baseline; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem; }
+.site h2 { font-family: var(--f-display); font-weight: 800; font-size: 1.6rem; margin: 0; }
+.site-count { color: var(--muted); }
+.site-link { margin-left: auto; font-weight: 600; }
+
+.legend, .check {
+  display: grid; align-items: center; column-gap: 1.25rem;
+  grid-template-columns: 5.5rem minmax(10rem, 1fr) minmax(0, 20rem) 4.5rem 4.5rem;
+}
+.legend { grid-template-columns: minmax(10rem, 1fr) minmax(0, 20rem) 4.5rem 4.5rem; padding-left: calc(5.5rem + 1.25rem); color: var(--muted); font-size: 0.8rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--line); }
+.legend span:nth-child(3), .legend span:nth-child(4) { text-align: right; }
+
+.checks { list-style: none; margin: 0; padding: 0; }
+.check { padding: 0.8rem 0; border-bottom: 1px solid var(--line); }
+.check:last-child { border-bottom: 0; }
+.status-word { font-weight: 600; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.4rem; }
+.status-word::before { content: ''; width: 0.6rem; height: 0.6rem; border-radius: 50%; background: currentColor; }
+.check[data-status='up'] .status-word { color: var(--up); }
+.check[data-status='down'] .status-word { color: var(--down); }
+.check[data-status='unstable'] .status-word { color: var(--unstable); }
+.check-name { font-weight: 500; }
+.uptime, .rt { text-align: right; font-variant-numeric: tabular-nums; }
+.uptime { font-weight: 600; }
+.rt { color: var(--muted); font-size: 0.9rem; }
+
+/* The patrol strip: one bar per run, oldest on the left. */
+.strip { display: grid; grid-template-columns: repeat(48, 1fr); gap: 2px; height: 26px; }
+.bar { border-radius: 2px; background: var(--none); }
+.bar[data-status='up'] { background: var(--up); }
+.bar[data-status='down'] { background: var(--down); }
+.bar[data-status='empty'] { background: var(--empty); }
+
+/* ---------- Incidents ---------- */
+
+.incidents h2 { font-family: var(--f-display); font-weight: 800; font-size: 1.6rem; margin: 0 0 0.75rem; }
+.incidents ul { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.incident {
+  display: grid; grid-template-columns: 9.5rem minmax(0, 1fr) auto auto; gap: 1.25rem; align-items: baseline;
+  padding: 0.8rem 0; border-bottom: 1px solid var(--line);
+}
+.incident-state { font-weight: 600; color: var(--muted); }
+.incident.is-open .incident-state { color: var(--down); }
+.incident-when { color: var(--muted); font-size: 0.9rem; }
+.incident a { font-weight: 600; }
+.quiet { color: var(--muted); }
+
+.foot { color: var(--muted); font-size: 0.875rem; padding-block: 0 2rem; }
+.foot::before { content: ''; display: block; border-top: 1px solid var(--line); margin-bottom: 1.5rem; }
+
+/* ---------- Small screens ---------- */
+
+@media (max-width: 760px) {
+  .masthead, #app, .foot { padding-inline: 1rem; }
+  .site { padding: 1rem 1rem 0.25rem; }
+  .legend { display: none; }
+  .check { grid-template-columns: 5rem minmax(0, 1fr) auto; row-gap: 0.5rem; }
+  .strip { grid-column: 1 / -1; grid-row: 2; }
+  .rt { grid-column: 1 / -1; grid-row: 3; text-align: left; }
+  .rt:empty { display: none; }
+  .incident { grid-template-columns: 1fr auto; row-gap: 0.15rem; }
+  .incident-name { grid-column: 1 / -1; grid-row: 2; }
+  .incident-when { grid-column: 1; grid-row: 3; }
+}

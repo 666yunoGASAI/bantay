@@ -1,0 +1,29 @@
+{
+  "name": "bantay",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Bantay: scheduled synthetic monitoring for web apps. Playwright checks on GitHub Actions, automatic GitHub issues, Discord alerts and a public status page.",
+  "type": "module",
+  "scripts": {
+    "patrol": "tsx src/cli.ts",
+    "patrol:chaos": "cross-env BANTAY_CHAOS=1 tsx src/cli.ts",
+    "monitors": "playwright test -c playwright.monitors.config.ts",
+    "status-page": "serve site -l 4300",
+    "typecheck": "tsc --noEmit",
+    "test:unit": "vitest run",
+    "test:page": "playwright test",
+    "test": "npm run test:unit && npm run test:page"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.1",
+    "@types/node": "^22.20.5",
+    "cross-env": "^10.1.0",
+    "serve": "^14.2.8",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vitest": "^2.1.9"
+  }
+}
