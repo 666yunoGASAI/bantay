@@ -1,0 +1,56 @@
+{
+  "checkedAt": "2026-11-25T17:15:56.420Z",
+  "runUrl": "https://github.com/666yunoGASAI/bantay/actions/runs/45662814611",
+  "overall": "up",
+  "checks": [
+    {
+      "id": "bracket-lord/site-is-reachable",
+      "site": "Bracket Lord",
+      "name": "Site is reachable",
+      "status": "up",
+      "retried": false,
+      "responseTimeMs": 375,
+      "uptime": 100
+    },
+    {
+      "id": "bracket-lord/home-page-loads-without-errors",
+      "site": "Bracket Lord",
+      "name": "Home page loads without errors",
+      "status": "up",
+      "retried": false,
+      "uptime": 100
+    },
+    {
+      "id": "bracket-lord/create-a-tournament",
+      "site": "Bracket Lord",
+      "name": "Create a tournament",
+      "status": "up",
+      "retried": false,
+      "uptime": 100
+    },
+    {
+      "id": "bracket-lord/report-a-match-result",
+      "site": "Bracket Lord",
+      "name": "Report a match result",
+      "status": "up",
+      "retried": false,
+      "uptime": 100
+    },
+    {
+      "id": "bracket-lord/saved-data-survives-a-reload",
+      "site": "Bracket Lord",
+      "name": "Saved data survives a reload",
+      "status": "up",
+      "retried": false,
+      "uptime": 100
+    }
+  ],
+  "sites": [
+    {
+      "name": "Bracket Lord",
+      "url": "https://bracket-lord.vercel.app"
+    }
+  ],
+  "schedule": "every 3 hours",
+  "intervalHours": 3
+}

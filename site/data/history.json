@@ -1,0 +1,31 @@
+{
+  "runs": [
+    {
+      "runId": "45662814611",
+      "at": "2026-11-25T17:15:56.420Z",
+      "results": [
+        {
+          "id": "bracket-lord/site-is-reachable",
+          "status": "up",
+          "ms": 375
+        },
+        {
+          "id": "bracket-lord/home-page-loads-without-errors",
+          "status": "up"
+        },
+        {
+          "id": "bracket-lord/create-a-tournament",
+          "status": "up"
+        },
+        {
+          "id": "bracket-lord/report-a-match-result",
+          "status": "up"
+        },
+        {
+          "id": "bracket-lord/saved-data-survives-a-reload",
+          "status": "up"
+        }
+      ]
+    }
+  ]
+}
