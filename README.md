@@ -7,7 +7,7 @@
 
 *Bantay* is Filipino for "guard" or "watch". Every 3 hours it walks through my deployed projects the way a real user would, and if something breaks, it files the bug report itself.
 
-> **Status page:** _add your Vercel link here_
+> **Status page:** _[add your Vercel link here](https://bantay-xi.vercel.app/)_
 
 ![Bantay status page](docs/status-page.png)
 
