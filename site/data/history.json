@@ -134,6 +134,33 @@
           "status": "up"
         }
       ]
+    },
+    {
+      "runId": "46053477292",
+      "at": "2026-11-27T19:00:30.826Z",
+      "results": [
+        {
+          "id": "bracket-lord/site-is-reachable",
+          "status": "up",
+          "ms": 48
+        },
+        {
+          "id": "bracket-lord/home-page-loads-without-errors",
+          "status": "up"
+        },
+        {
+          "id": "bracket-lord/create-a-tournament",
+          "status": "up"
+        },
+        {
+          "id": "bracket-lord/report-a-match-result",
+          "status": "up"
+        },
+        {
+          "id": "bracket-lord/saved-data-survives-a-reload",
+          "status": "up"
+        }
+      ]
     }
   ]
 }
