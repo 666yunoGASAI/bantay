@@ -1,6 +1,6 @@
 {
-  "checkedAt": "2026-11-27T19:00:30.826Z",
-  "runUrl": "https://github.com/666yunoGASAI/bantay/actions/runs/46053477292",
+  "checkedAt": "2026-11-28T03:19:49.853Z",
+  "runUrl": "https://github.com/666yunoGASAI/bantay/actions/runs/46102293395",
   "overall": "up",
   "checks": [
     {
@@ -9,7 +9,7 @@
       "name": "Site is reachable",
       "status": "up",
       "retried": false,
-      "responseTimeMs": 48,
+      "responseTimeMs": 314,
       "uptime": 100
     },
     {
